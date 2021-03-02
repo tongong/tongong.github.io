@@ -1,0 +1,52 @@
+@font-face {
+    font-family: 'Fira Code';
+    src: url('fonts/FiraCode-Regular.woff2') format('woff2'),
+    url("fonts/FiraCode-Regular.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+}
+
+body {
+    background-color: #242930;
+    color: #afbac4;
+    font-family: 'Fira Code', monospace;
+    margin: 20px auto;
+    max-width: 650px;
+    line-height: 1.6;
+    font-size: 18px;
+    padding: 0 10px;
+}
+
+h1, h2, h3{
+    line-height: 1.2;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #ffffff;
+}
+
+a {
+    color: #57cc8a;
+}
+
+hr {
+    border: 1px solid #afbac4;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+#icon {
+    vertical-align: middle;
+    margin-right: 10px;
+}
+#icontext {
+    vertical-align: middle;
+}
+
+h2::before {
+    content: "# ";
+    opacity: 0.5;
+}
