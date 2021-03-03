@@ -50,3 +50,9 @@ h2::before {
     content: "# ";
     opacity: 0.5;
 }
+
+#pgp-line {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
