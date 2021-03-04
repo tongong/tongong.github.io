@@ -56,3 +56,12 @@ html, body {
 
     transition: height 0.2s, top 0.2s;
 }
+
+#page1 {
+    background-color: #242930;
+}
+
+#bg-canvas {
+    height: 100%;
+    width: 100%;
+}
