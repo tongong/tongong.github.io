@@ -1,5 +1,5 @@
-let PARTNUM;
-const MDIST = 200;
+let PARTNUM; // number of particles
+const MDIST = 200; // distance needed for particles to connect
 
 let particles = [];
 window.addEventListener("load", function() {
@@ -7,15 +7,17 @@ window.addEventListener("load", function() {
     const ctx = canvas.getContext('2d');
 
     function resizeCanvas() {
-        canvas.height = canvas.clientHeight;
-        canvas.width = canvas.clientWidth;
+        // extra checks to prevent useless reloads
+        if (canvas.height != canvas.clientHeight) canvas.height = canvas.clientHeight;
+        if (canvas.width != canvas.clientWidth) canvas.width = canvas.clientWidth;
     }
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
 
+    // calculate the number depending on the screen size
+    // -> bigger screen needs more CPU
     PARTNUM = (canvas.height + 200) * (canvas.width + 200) / 20000;
 
-    console.log(PARTNUM);
     for (let i = 0; i < PARTNUM; i++) {
         particles.push({
             posX: Math.random() * canvas.width,

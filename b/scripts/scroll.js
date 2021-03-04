@@ -1,17 +1,17 @@
 window.addEventListener("load", function() {
-    let pageNumber;
     const scrollicons = Array.from(document.querySelectorAll(".scroll-circle"));
-    pageNumber = scrollicons.length;
+    let pageNumber = scrollicons.length;
     Array.from(document.querySelectorAll(".page")).forEach((e,i) => {
         scrollicons[i].onclick = () => {
             e.scrollIntoView({behavior: "smooth"});
         }
     });
 
-    let prevPage = 0;
+    let prevPage = 0; // previously viewed page
     const scrollElem = document.getElementById("scroll-highlight");
     let startedAnim = false;
     function scrollAnimation() {
+        // get current viewed page
         let page = Math.round(document.scrollingElement.scrollTop / (document.scrollingElement.scrollHeight - document.scrollingElement.clientHeight) * (pageNumber-1));
         if (page != prevPage && !startedAnim) {
             startedAnim = true;
@@ -23,6 +23,7 @@ window.addEventListener("load", function() {
                     setTimeout(() => {
                         scrollElem.style.height = "8px";
                         startedAnim = false;
+                        // run animation multiple times if the user scrolls fast
                         scrollAnimation(page);
                     }, 200);
                 }, 200);
@@ -41,8 +42,10 @@ window.addEventListener("load", function() {
         }
     }
     document.onscroll = scrollAnimation;
-});
 
-function scrollTo(pageNum) {
-    Array.from(document.querySelectorAll(".page"))[pageNum].scrollIntoView({behavior: "smooth"});
-}
+    function toPage(pageNum) {
+        document.querySelectorAll(".page")[pageNum].scrollIntoView({behavior: "smooth"});
+    }
+    document.getElementById("projects-link").onclick = () => { toPage(1); };
+    document.getElementById("about-link").onclick = () => { toPage(2); };
+});
