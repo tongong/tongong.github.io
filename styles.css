@@ -30,7 +30,9 @@ a {
 }
 
 hr {
-    border: 1px solid #afbac4;
+    border: 0;
+    height: 2px;
+    background-color: #afbac4;
 }
 
 h1 {
